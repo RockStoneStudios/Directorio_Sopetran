@@ -28,7 +28,7 @@ exports.mostrarProductos = mostrarProductos;
 const crearProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
-        const { nombre, imagen, precio } = req.body;
+        const { nombre, imagen, precio, calificacion } = req.body;
         const id = req.params.id;
         if (nombre.length < 3)
             return res.status(400).json({ message: 'Ingresa Nombre del producto' });
@@ -40,13 +40,15 @@ const crearProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         const producto_nuevo = {
             nombre,
             imagen,
-            precio
+            precio,
+            calificacion
         };
         const nuevo_producto = new Producto_1.default(producto_nuevo);
         (_a = negocio === null || negocio === void 0 ? void 0 : negocio.productos) === null || _a === void 0 ? void 0 : _a.push(nuevo_producto.id);
         nuevo_producto.negocio = negocio === null || negocio === void 0 ? void 0 : negocio.id;
         yield (negocio === null || negocio === void 0 ? void 0 : negocio.save());
         yield nuevo_producto.save();
+        return res.status(200).json(nuevo_producto);
     }
     catch (error) {
         return res.status(500).json(error);

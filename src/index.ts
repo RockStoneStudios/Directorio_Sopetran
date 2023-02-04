@@ -4,6 +4,7 @@ import DB  from './db/connection';
 import negocioRouter from './routes/negocios.routes';
 import productoRouter from './routes/productos.routes';
 import categoriaRouter from './routes/categorias.routes';
+import cors from 'cors';
 class Server {
     private app : Application;
     private port : number;
@@ -24,6 +25,7 @@ class Server {
     }
     
      public middlewares() {
+        this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended : false}));
      }

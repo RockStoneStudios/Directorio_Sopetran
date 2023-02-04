@@ -9,6 +9,7 @@ const connection_1 = __importDefault(require("./db/connection"));
 const negocios_routes_1 = __importDefault(require("./routes/negocios.routes"));
 const productos_routes_1 = __importDefault(require("./routes/productos.routes"));
 const categorias_routes_1 = __importDefault(require("./routes/categorias.routes"));
+const cors_1 = __importDefault(require("cors"));
 class Server {
     constructor() {
         this.path = {
@@ -24,6 +25,7 @@ class Server {
         this.listen();
     }
     middlewares() {
+        this.app.use((0, cors_1.default)());
         this.app.use(express_1.default.json());
         this.app.use(express_1.default.urlencoded({ extended: false }));
     }

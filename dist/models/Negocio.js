@@ -11,6 +11,9 @@ const SchemaNegocio = new mongoose_1.Schema({
     imagen: {
         type: String,
     },
+    descripcion: {
+        type: String
+    },
     rating: {
         type: Number,
         default: 3.0
@@ -23,6 +26,9 @@ const SchemaNegocio = new mongoose_1.Schema({
         type: Number,
         required: true,
         default: 1
+    },
+    telefono: {
+        type: String,
     },
     tiempo_entrega: {
         type: String,
