@@ -67,7 +67,7 @@ exports.MostrarNegocios = MostrarNegocios;
 const MostrarNegocioId = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.id;
     try {
-        const negocio = yield Negocio_1.default.findById(id);
+        const negocio = yield Negocio_1.default.findById(id).populate('productos');
         if (!negocio)
             return res.status(404).json({ message: "No hay Negocio con este Id" });
         return res.status(200).json(negocio);

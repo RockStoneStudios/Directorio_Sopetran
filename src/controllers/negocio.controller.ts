@@ -55,7 +55,7 @@ export const MostrarNegocios = async (req:Request,res: Response) => {
 export const MostrarNegocioId = async (req:Request,res:Response) => {
    const id = req.params.id;
    try{
-       const negocio = await Negocio.findById(id);
+       const negocio = await Negocio.findById(id).populate('productos');
        if(!negocio) return res.status(404).json({message : "No hay Negocio con este Id"});
        return res.status(200).json(negocio);
    }catch(error){
