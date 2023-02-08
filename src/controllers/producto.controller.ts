@@ -15,7 +15,7 @@ export const mostrarProductos = async (req:Request,res:Response) => {
 
 export const crearProducto = async (req:Request,res:Response) => {
      try{
-          const {nombre,imagen,precio,calificacion} = req.body;
+          const {nombre,imagen,precio,calificacion,descripcion} = req.body;
            const id = req.params.id;
            if(nombre.length< 3) return res.status(400).json({message : 'Ingresa Nombre del producto'});
            if(imagen.length< 5) return res.status(400).json({message : 'Ingresa Imagen'});
@@ -25,7 +25,8 @@ export const crearProducto = async (req:Request,res:Response) => {
              nombre,
              imagen,
              precio,
-             calificacion
+             calificacion,
+             descripcion
            }
            const nuevo_producto = new Producto(producto_nuevo);
            negocio?.productos?.push(nuevo_producto.id);
