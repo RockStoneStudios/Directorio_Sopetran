@@ -45,7 +45,7 @@ export const crearNegocio = async(req:Request,res:Response)=>{
 
 export const MostrarNegocios = async (req:Request,res: Response) => {
      try{
-         const negocios = await Negocio.find({}).populate({path : 'categoria',select : 'nombre'});
+         const negocios = await Negocio.find({}).populate({path : 'categoria',select : 'nombre'}).sort('-rating');
          return res.status(200).json(negocios);
      }catch(error){
         res.status(500).json(error);

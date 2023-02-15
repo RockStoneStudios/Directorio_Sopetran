@@ -47,6 +47,10 @@ const SchemaNegocio = new mongoose_1.Schema({
         type: mongoose_1.Types.ObjectId,
         ref: 'Categoria'
     },
+    servicios: [{
+            type: String,
+        }
+    ],
     productos: [
         {
             type: mongoose_1.Types.ObjectId,

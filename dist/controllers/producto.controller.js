@@ -28,7 +28,7 @@ exports.mostrarProductos = mostrarProductos;
 const crearProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     try {
-        const { nombre, imagen, precio, calificacion } = req.body;
+        const { nombre, imagen, precio, calificacion, descripcion } = req.body;
         const id = req.params.id;
         if (nombre.length < 3)
             return res.status(400).json({ message: 'Ingresa Nombre del producto' });
@@ -41,7 +41,8 @@ const crearProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* 
             nombre,
             imagen,
             precio,
-            calificacion
+            calificacion,
+            descripcion
         };
         const nuevo_producto = new Producto_1.default(producto_nuevo);
         (_a = negocio === null || negocio === void 0 ? void 0 : negocio.productos) === null || _a === void 0 ? void 0 : _a.push(nuevo_producto.id);

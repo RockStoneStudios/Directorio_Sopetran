@@ -56,7 +56,7 @@ const crearNegocio = (req, res) => __awaiter(void 0, void 0, void 0, function* (
 exports.crearNegocio = crearNegocio;
 const MostrarNegocios = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const negocios = yield Negocio_1.default.find({}).populate({ path: 'categoria', select: 'nombre' });
+        const negocios = yield Negocio_1.default.find({}).populate({ path: 'categoria', select: 'nombre' }).sort('-rating');
         return res.status(200).json(negocios);
     }
     catch (error) {

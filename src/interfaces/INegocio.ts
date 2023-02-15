@@ -11,6 +11,7 @@ export interface INegocio {
     tiempo_entrega : string;
     oferta : boolean;
     abierto : boolean;
-    categoria ?: Types.ObjectId
+    servicios :  String[];
+    categoria ?: Types.ObjectId;
     productos? : Types.ObjectId[];
 }
