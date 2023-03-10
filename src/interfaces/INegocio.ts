@@ -12,6 +12,8 @@ export interface INegocio {
     oferta : boolean;
     abierto : boolean;
     servicios :  String[];
+    latitude : number;
+    longitude : number;
     categoria ?: Types.ObjectId;
     productos? : Types.ObjectId[];
 }

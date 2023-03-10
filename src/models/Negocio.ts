@@ -44,6 +44,14 @@ const SchemaNegocio = new Schema <INegocio>({
        type : Boolean,
        default : false
      },
+      latitude : {
+         type : Number,
+         default : 6.5
+      },
+      longitude : {
+        type : Number,
+        default : -75.732
+      },
       categoria : {
          type : Types.ObjectId,
          ref : 'Categoria'
@@ -52,6 +60,7 @@ const SchemaNegocio = new Schema <INegocio>({
          type : String,
       }
       ],
+
      productos : [
          {
             type : Types.ObjectId,
