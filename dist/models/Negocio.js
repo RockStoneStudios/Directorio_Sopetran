@@ -44,10 +44,12 @@ const SchemaNegocio = new mongoose_1.Schema({
         default: false
     },
     latitude: {
-        type: Number
+        type: Number,
+        default: 6.5
     },
     longitude: {
-        type: Number
+        type: Number,
+        default: -75.732
     },
     categoria: {
         type: mongoose_1.Types.ObjectId,

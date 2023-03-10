@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
-import config from "../config";
+import dotenv from 'dotenv';
 
-export default mongoose.connect(<string> config.DB).then(()=> console.log('Database Connected Successful'))
+dotenv.config();
+
+export default mongoose.connect(process.env.DB as string).then(()=> console.log('Database Connected Successful'))
                                           .catch(error => console.log(error));

@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const config_1 = __importDefault(require("./config"));
+const dotenv_1 = __importDefault(require("dotenv"));
 const connection_1 = __importDefault(require("./db/connection"));
 const negocios_routes_1 = __importDefault(require("./routes/negocios.routes"));
 const productos_routes_1 = __importDefault(require("./routes/productos.routes"));
@@ -17,8 +17,9 @@ class Server {
             producto: '/productos',
             categoria: '/categorias'
         };
+        dotenv_1.default.config();
         this.app = (0, express_1.default)();
-        this.port = parseInt(config_1.default.PORT);
+        this.port = parseInt(process.env.PORT);
         this.middlewares();
         this.databaseInithializacion();
         this.routes();

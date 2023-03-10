@@ -1,10 +1,13 @@
 import express , {Application} from 'express';
-import config from './config';
+import dotenv from 'dotenv';
 import DB  from './db/connection';
 import negocioRouter from './routes/negocios.routes';
 import productoRouter from './routes/productos.routes';
 import categoriaRouter from './routes/categorias.routes';
 import cors from 'cors';
+
+
+
 class Server {
     private app : Application;
     private port : number;
@@ -16,8 +19,9 @@ class Server {
     }
 
     constructor(){
+        dotenv.config();
         this.app = express();
-        this.port = parseInt(<string>config.PORT);
+        this.port = parseInt(process.env.PORT as string);
         this.middlewares();
         this.databaseInithializacion();
         this.routes();
@@ -25,6 +29,7 @@ class Server {
     }
     
      public middlewares() {
+        
         this.app.use(cors());
         this.app.use(express.json());
         this.app.use(express.urlencoded({extended : false}));
