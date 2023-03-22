@@ -19,7 +19,7 @@ export const crearProducto = async (req:Request,res:Response) => {
            const id = req.params.id;
            if(nombre.length< 3) return res.status(400).json({message : 'Ingresa Nombre del producto'});
            if(imagen.length< 5) return res.status(400).json({message : 'Ingresa Imagen'});
-           if(precio <200) return res.status(400).json({message : 'Ingresa Precio Valido'});
+           if(precio <1) return res.status(400).json({message : 'Ingresa Precio Valido'});
            const negocio = await Negocio.findById(id);
            const producto_nuevo = {
              nombre,
