@@ -56,6 +56,9 @@ const SchemaNegocio = new Schema <INegocio>({
          type : Types.ObjectId,
          ref : 'Categoria'
       },
+      historia : {
+       type : String
+      },
       servicios : [{
          type : String,
       }

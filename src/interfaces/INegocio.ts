@@ -14,6 +14,7 @@ export interface INegocio {
     servicios :  String[];
     latitude : number;
     longitude : number;
+    historia: string;
     categoria ?: Types.ObjectId;
     productos? : Types.ObjectId[];
 }
