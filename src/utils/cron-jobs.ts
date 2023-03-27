@@ -7,13 +7,13 @@ cron.schedule('* * * * *',() => {
 });
 
 export const Open = () => {
-    cron.schedule('* 19 * * *',async()=>{
+    cron.schedule('* * 19 * * *',async()=>{
 
         try {
           const negocios = await Negocio.find({});
           if(negocios) {
               negocios.map(async(negocio) => {
-                negocio.abierto = false
+                negocio.abierto = true
                 await negocio.save(); 
               });
 
