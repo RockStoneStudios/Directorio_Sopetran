@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.eliminarNegocio = exports.actualizarNegocio = exports.MostrarNegocioId = exports.MostrarNegocios = exports.crearNegocio = void 0;
 const Negocio_1 = __importDefault(require("../models/Negocio"));
 const Categoria_1 = __importDefault(require("../models/Categoria"));
+const cron_jobs_1 = require("../utils/cron-jobs");
 const crearNegocio = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const id = req.params.id;
@@ -81,6 +82,7 @@ const actualizarNegocio = (req, res) => __awaiter(void 0, void 0, void 0, functi
     const id = req.params.id;
     try {
         const negocio = yield Negocio_1.default.findOneAndUpdate({ _id: id }, req.body, { new: true });
+        (0, cron_jobs_1.Open)(negocio === null || negocio === void 0 ? void 0 : negocio.abierto);
         if (!negocio)
             return res.status(404).json({ message: "No se encontro Negocio con este Id" });
         return res.status(200).json(negocio);

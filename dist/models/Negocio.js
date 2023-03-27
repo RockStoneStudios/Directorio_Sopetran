@@ -55,6 +55,9 @@ const SchemaNegocio = new mongoose_1.Schema({
         type: mongoose_1.Types.ObjectId,
         ref: 'Categoria'
     },
+    historia: {
+        type: String
+    },
     servicios: [{
             type: String,
         }

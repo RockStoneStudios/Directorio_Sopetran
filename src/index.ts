@@ -5,6 +5,7 @@ import negocioRouter from './routes/negocios.routes';
 import productoRouter from './routes/productos.routes';
 import categoriaRouter from './routes/categorias.routes';
 import cors from 'cors';
+import { Open } from './utils/cron-jobs';
 
 
 
@@ -26,6 +27,7 @@ class Server {
         this.databaseInithializacion();
         this.routes();
         this.listen();
+        Open();
     }
     
      public middlewares() {

@@ -1,6 +1,8 @@
 import { Request,Response } from "express";
 import Negocio from "../models/Negocio";
 import Categoria from "../models/Categoria";
+import { Open } from "../utils/cron-jobs";
+
 
 export const crearNegocio = async(req:Request,res:Response)=>{
       const id = req.params.id;
@@ -68,6 +70,7 @@ export const actualizarNegocio = async (req:Request,res:Response) => {
     const id = req.params.id;
    try{
         const negocio = await Negocio.findOneAndUpdate({_id:id},req.body,{new : true});
+       
         if(!negocio) return res.status(404).json({message : "No se encontro Negocio con este Id"});
         return res.status(200).json(negocio);
    }catch(error){

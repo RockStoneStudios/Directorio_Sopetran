@@ -54,6 +54,7 @@ export const mostrarProductoId = async (req:Request,res:Response) => {
 export const actualizarProducto = async(req:Request,res:Response) => {
      try{
           const producto = await Producto.findOneAndUpdate({_id : req.params.id},req.body,{new : true});
+           
            if(!producto) return res.status(404).json({message : "No se encontro producto con este Id"});
            return res.status(200).json(producto);
      }catch(error){
