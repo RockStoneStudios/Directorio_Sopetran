@@ -7,7 +7,7 @@ cron.schedule('* * * * *',() => {
 });
 
 export const Open = () => {
-    cron.schedule('*/2 * * * *',async()=>{
+    cron.schedule('* 21 * * *',async()=>{
     console.log('oe');
         try {
           const negocios = await Negocio.find({});
